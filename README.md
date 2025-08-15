@@ -7,6 +7,10 @@ pnpx selfily
 ```
 
 ## Detail
-package.json.name -> foldername
-package.json.description -> `${foldername} description`
-package.json.author -> git.user.name
+### package.json
+- name -> foldername
+- description -> `${foldername} description`
+- author -> git.user.name
+
+### README.md
+- content -> `${foldername} description`
