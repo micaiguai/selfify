@@ -1,0 +1,28 @@
+{
+  "name": "selfify",
+  "version": "0.0.2",
+  "description": "selfify description",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsdown --watch",
+    "build": "tsdown",
+    "release": "release-it"
+  },
+  "keywords": [],
+  "author": "micaiguai",
+  "license": "MIT",
+  "packageManager": "pnpm@10.14.0",
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.10",
+    "@types/get-package-type": "^0.1.0",
+    "release-it": "^19.0.4",
+    "tsdown": "^0.14.1",
+    "type-fest": "^4.41.0"
+  },
+  "dependencies": {
+    "@types/node": "^24.2.1",
+    "dayjs": "^1.11.13",
+    "zx": "^8.8.0"
+  }
+}
