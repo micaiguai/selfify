@@ -1,6 +1,6 @@
 {
   "name": "selfify",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "selfify description",
   "type": "module",
   "main": "./dist/index.js",
