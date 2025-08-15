@@ -8,6 +8,10 @@ importers:
 
   .:
     dependencies:
+      zx:
+        specifier: ^8.8.0
+        version: 8.8.0
+    devDependencies:
       '@tsconfig/recommended':
         specifier: ^1.0.10
         version: 1.0.10
@@ -20,10 +24,6 @@ importers:
       tsdown:
         specifier: ^0.14.1
         version: 0.14.1
-    devDependencies:
-      zx:
-        specifier: ^8.8.0
-        version: 8.8.0
 
 packages:
 

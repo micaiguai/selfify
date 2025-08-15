@@ -1,5 +1,4 @@
-#!/usr/bin/env node
-
+#!/usr/bin/env zx
 import { $ } from 'zx'
 
 const packageJsonRaw = await $`cat package.json`
@@ -11,11 +10,18 @@ const basename = foldername.stdout.replace('\n', '')
 const author = gitUsername.stdout.replace('\n', '')
 const description = `${basename} description`
 const repository = `https://github.com/${author}/${basename}`
+const sponsor = `https://github.com/sponsors/${author}`
 
 json.name = basename
 json.version = '0.0.1'
 json.description = description
 json.author = author
+if (json.homepage) {
+  json.homepage = `${repository}#readme`
+}
+if (json.funding) {
+  json.funding = sponsor
+}
 if (json.publisher) {
   json.publisher = author
 }
@@ -43,7 +49,7 @@ if (json.bugs) {
 }
 if (json.sponsor) {
   json.sponsor = {
-    url: `https://github.com/sponsors/${author}`
+    url: sponsor
   }
 }
 if (json.contributes) {

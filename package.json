@@ -18,13 +18,13 @@
   "license": "MIT",
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
-    "zx": "^8.8.0"
-  },
-  "dependencies": {
     "release-it": "^19.0.4",
     "tsdown": "^0.14.1",
     "@tsconfig/recommended": "^1.0.10",
     "@types/node": "^24.2.1"
+  },
+  "dependencies": {
+    "zx": "^8.8.0"
   },
   "module": "./dist/index.js",
   "exports": {
