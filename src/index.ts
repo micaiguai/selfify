@@ -1,6 +1,5 @@
-#!/usr/bin/env zx
+#!/usr/bin/env node
 
-import { url } from 'inspector'
 import { $ } from 'zx'
 
 const packageJsonRaw = await $`cat package.json`
