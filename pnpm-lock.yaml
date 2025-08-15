@@ -8,31 +8,22 @@ importers:
 
   .:
     dependencies:
-      '@types/node':
-        specifier: ^24.2.1
-        version: 24.2.1
-      dayjs:
-        specifier: ^1.11.13
-        version: 1.11.13
-      zx:
-        specifier: ^8.8.0
-        version: 8.8.0
-    devDependencies:
       '@tsconfig/recommended':
         specifier: ^1.0.10
         version: 1.0.10
-      '@types/get-package-type':
-        specifier: ^0.1.0
-        version: 0.1.0
+      '@types/node':
+        specifier: ^24.2.1
+        version: 24.2.1
       release-it:
         specifier: ^19.0.4
         version: 19.0.4(@types/node@24.2.1)
       tsdown:
         specifier: ^0.14.1
         version: 0.14.1
-      type-fest:
-        specifier: ^4.41.0
-        version: 4.41.0
+    devDependencies:
+      zx:
+        specifier: ^8.8.0
+        version: 8.8.0
 
 packages:
 
@@ -369,9 +360,6 @@ packages:
   '@tybys/wasm-util@0.10.0':
     resolution: {integrity: sha512-VyyPYFlOMNylG45GoAe0xDoLwWuowvf92F9kySqzYh8vmYm7D2u4iUJKa1tOUpS70Ku13ASrOkS4ScXFsTaCNQ==}
 
-  '@types/get-package-type@0.1.0':
-    resolution: {integrity: sha512-rm3Oaq6WX/DhRfqM5yn+oPoHhSCcK5nPN5AT2P5EOxiJHvG0AAvxv1u69RuB+A1Gdgru4lCyEXMK5aPXpSyCwA==}
-
   '@types/node@24.2.1':
     resolution: {integrity: sha512-DRh5K+ka5eJic8CjH7td8QpYEV6Zo10gfRkjHCO3weqZHWDtAaSTFtl4+VMqOJ4N5jcuhZ9/l+yy8rVgw7BQeQ==}
 
@@ -491,9 +479,6 @@ packages:
   data-uri-to-buffer@6.0.2:
     resolution: {integrity: sha512-7hvf7/GW8e86rW0ptuwS3OcBGDjIi6SZva7hCyWC0yYry2cOPmLIjXAUHI6DK2HsnwJd9ifmt57i8eV2n4YNpw==}
     engines: {node: '>= 14'}
-
-  dayjs@1.11.13:
-    resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==}
 
   debug@4.4.1:
     resolution: {integrity: sha512-KcKCqiftBJcZr++7ykoDIEwSa3XWowTfNPo92BYxjXiyYEVrUQh2aLyhxBCwww+heortUFxEJYcRzosstTEBYQ==}
@@ -1013,10 +998,6 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  type-fest@4.41.0:
-    resolution: {integrity: sha512-TeTSQ6H5YHvpqVwBRcnLDCBnDOHWYu7IvGbHT6N8AOymcr9PJGjc1GTtiWZTYg0NCgYwvnYWEkVChQAr9bjfwA==}
-    engines: {node: '>=16'}
-
   unconfig@7.3.2:
     resolution: {integrity: sha512-nqG5NNL2wFVGZ0NA/aCFw0oJ2pxSf1lwg4Z5ill8wd7K4KX/rQbHlwbh+bjctXL5Ly1xtzHenHGOK0b+lG6JVg==}
 
@@ -1387,8 +1368,6 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
-  '@types/get-package-type@0.1.0': {}
-
   '@types/node@24.2.1':
     dependencies:
       undici-types: 7.10.0
@@ -1492,8 +1471,6 @@ snapshots:
       which: 2.0.2
 
   data-uri-to-buffer@6.0.2: {}
-
-  dayjs@1.11.13: {}
 
   debug@4.4.1:
     dependencies:
@@ -2010,8 +1987,6 @@ snapshots:
   type-fest@0.21.3: {}
 
   type-fest@2.19.0: {}
-
-  type-fest@4.41.0: {}
 
   unconfig@7.3.2:
     dependencies:
