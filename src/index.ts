@@ -1,20 +1,20 @@
-#!/usr/bin/env zx
-import { $ } from 'zx'
-import { PackageJson} from 'type-fest'
+#!/usr/bin/env node
 
-const packageJsonRaw = await $`cat package.json`
-const json: PackageJson.PackageJsonStandard = JSON.parse(packageJsonRaw.stdout)
-const foldername = await $`basename $(pwd)`
-const gitUsername = await $`git config --get user.name`
+import { __workspace } from './utils/index'
+import { initMeta } from './utils/init'
+import { packagePlugin } from './plugins/package'
+import { licensePlugin } from './plugins/license'
+import { readmePlugin } from './plugins/readme'
+import { Selfify } from './utils/selfify'
+import { fundingPlugin } from './plugins/funding'
 
-const basename = foldername.stdout.replace('\n', '')
-const author = gitUsername.stdout.replace('\n', '')
+const meta = await initMeta()
 
-json.name = basename
-json.version = '0.0.1'
-json.description = `${basename} description`
-json.author = author
+const instance = new Selfify(meta, [
+  packagePlugin,
+  licensePlugin,
+  readmePlugin,
+  fundingPlugin
+])
 
-await $`echo ${JSON.stringify(json, null, 2)} > package.json`
-
-export {}
+instance.exec()

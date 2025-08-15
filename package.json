@@ -1,13 +1,19 @@
 {
   "name": "selfify",
-  "version": "0.0.2",
-  "description": "selfify description",
+  "version": "0.3.2",
+  "description": "Make your project as your own",
+  "main": "./dist/index.js",
   "type": "module",
-  "main": "index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "dev": "tsdown --watch",
     "build": "tsdown",
-    "release": "release-it"
+    "test": "vitest",
+    "test:snapshot": "vitest run --snapshot-update",
+    "release": "npm run build && release-it"
   },
   "keywords": [],
   "author": "micaiguai",
@@ -15,14 +21,23 @@
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.10",
-    "@types/get-package-type": "^0.1.0",
+    "@types/node": "^24.2.1",
     "release-it": "^19.0.4",
     "tsdown": "^0.14.1",
-    "type-fest": "^4.41.0"
+    "vitest": "^3.2.4"
   },
   "dependencies": {
-    "@types/node": "^24.2.1",
-    "dayjs": "^1.11.13",
-    "zx": "^8.8.0"
-  }
+    "@inquirer/prompts": "^7.8.4",
+    "change-case": "^5.4.4",
+    "dayjs": "^1.11.15"
+  },
+  "module": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "selfify": "./dist/index.js"
+  },
+  "bin": {
+    "selfify": "./dist/index.js"
+  },
+  "homepage": "https://github.com/micaiguai/selfify#readme"
 }
