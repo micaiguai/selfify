@@ -1,6 +1,7 @@
 #!/usr/bin/env node
+
 import { $ } from 'zx'
-import { PackageJson} from 'type-fest'
+import { type PackageJson } from 'type-fest'
 
 const packageJsonRaw = await $`cat package.json`
 const json: PackageJson.PackageJsonStandard = JSON.parse(packageJsonRaw.stdout)
