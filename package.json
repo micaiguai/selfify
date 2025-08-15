@@ -33,5 +33,6 @@
   },
   "bin": {
     "selfify": "./dist/index.js"
-  }
+  },
+  "homepage": "https://github.com/micaiguai/selfify#readme"
 }
