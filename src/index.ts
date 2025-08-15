@@ -13,10 +13,12 @@ const repository = `https://github.com/${author}/${basename}`
 const sponsor = `https://github.com/sponsors/${author}`
 
 json.name = basename
-json.displayName = basename
 json.description = description
 json.author = author
 json.homepage = `${repository}#readme`
+if (json.displayName) {
+  json.displayName = basename
+}
 if (json.funding) {
   json.funding = sponsor
 }
