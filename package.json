@@ -28,5 +28,13 @@
     "@types/node": "^24.2.1",
     "dayjs": "^1.11.13",
     "zx": "^8.8.0"
+  },
+  "module": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "selfify": "./dist/index.js"
+  },
+  "bin": {
+    "selfify": "./dist/index.js"
   }
 }
