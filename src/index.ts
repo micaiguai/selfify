@@ -16,9 +16,7 @@ json.name = basename
 json.version = '0.0.1'
 json.description = description
 json.author = author
-if (json.homepage) {
-  json.homepage = `${repository}#readme`
-}
+json.homepage = `${repository}#readme`
 if (json.funding) {
   json.funding = sponsor
 }
@@ -28,12 +26,12 @@ if (json.publisher) {
 if (json.exports) {
   json.exports = {
     '.': './dist/index.js',
-    [basename]: `./dist/${basename}.js`,
+    [basename]: `./dist/index.js`,
   }
 }
 if (json.bin) {
   json.bin = {
-    [basename]: `dist/${basename}.js`,
+    [basename]: `dist/index.js`,
   }
 }
 if (json.repository) {
