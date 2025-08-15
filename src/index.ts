@@ -13,7 +13,6 @@ const repository = `https://github.com/${author}/${basename}`
 const sponsor = `https://github.com/sponsors/${author}`
 
 json.name = basename
-json.version = '0.0.1'
 json.description = description
 json.author = author
 json.homepage = `${repository}#readme`
@@ -31,7 +30,7 @@ if (json.exports) {
 }
 if (json.bin) {
   json.bin = {
-    [basename]: `dist/index.js`,
+    [basename]: `./dist/index.js`,
   }
 }
 if (json.repository) {
