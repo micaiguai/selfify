@@ -53,15 +53,8 @@ if (json.sponsor) {
     url: sponsor
   }
 }
-if (json.contributes) {
-  json.contributes = {
-    commands: [],
-    configuration: {
-      type: 'object',
-      title: `${basename}`,
-      properties: {}
-    }
-  }
+if (json.contributes?.configuration) {
+  json.contributes.configuration.title = basename
 }
 const readme = `# ${basename}
 ${description}
