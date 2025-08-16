@@ -5,6 +5,7 @@ const packageJsonRaw = await $`cat package.json`
 const json: Record<string, any> = JSON.parse(packageJsonRaw.stdout)
 const foldername = await $`basename $(pwd)`
 const gitUsername = await $`git config --get user.name`
+const isFundingExist = await $`ls .github/FUNDING.yml`
 
 const basename = foldername.stdout.replace('\n', '')
 const author = gitUsername.stdout.replace('\n', '')
@@ -68,5 +69,8 @@ ${description}
 
 await $`echo ${JSON.stringify(json, null, 2)} > package.json`
 await $`echo ${readme} > README.md`
+if (isFundingExist.stdout) {
+  await $`echo 'github: [${author}]' > .github/FUNDING.yml`
+}
 
 export {}
