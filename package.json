@@ -11,6 +11,8 @@
   "scripts": {
     "dev": "tsdown --watch",
     "build": "tsdown",
+    "test": "vitest",
+    "test:snapshot": "vitest run --snapshot-update",
     "release": "npm run build && release-it"
   },
   "keywords": [],
@@ -18,12 +20,14 @@
   "license": "MIT",
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
+    "@tsconfig/recommended": "^1.0.10",
+    "@types/node": "^24.2.1",
     "release-it": "^19.0.4",
     "tsdown": "^0.14.1",
-    "@tsconfig/recommended": "^1.0.10",
-    "@types/node": "^24.2.1"
+    "vitest": "^3.2.4"
   },
   "dependencies": {
+    "change-case": "^5.4.4",
     "zx": "^8.8.0"
   },
   "module": "./dist/index.js",

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { capitalCase } from 'change-case'
 import { $ } from 'zx'
 
 const packageJsonRaw = await $`cat package.json`
@@ -18,7 +19,7 @@ json.description = description
 json.author = author
 json.homepage = `${repository}#readme`
 if (json.displayName) {
-  json.displayName = basename
+  json.displayName = capitalCase(basename)
 }
 if (json.funding) {
   json.funding = sponsor
