@@ -6,7 +6,7 @@
   </a>
 </p>
 
-Make your frontend project as your own.
+Make your project as your own.
 
 ## How to use
 ```bash
