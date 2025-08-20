@@ -1,8 +1,8 @@
 # selfily
 
 <p align="center">
-  <a href="./assets/icon.png">
-    <img style="width: 240px;" src="./assets/icon.png">
+  <a href="https://raw.githubusercontent.com/micaiguai/mix-icon/refs/heads/main/assets/icon.png">
+    <img style="width: 240px;" src="https://raw.githubusercontent.com/micaiguai/mix-icon/refs/heads/main/assets/icon.png">
   </a>
 </p>
 
