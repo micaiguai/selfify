@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://raw.githubusercontent.com/micaiguai/mix-icon/refs/heads/main/assets/icon.png">
-    <img src="https://raw.githubusercontent.com/micaiguai/mix-icon/refs/heads/main/assets/icon.png">
+    <img style="width: 240px;" src="https://raw.githubusercontent.com/micaiguai/mix-icon/refs/heads/main/assets/icon.png">
   </a>
 </p>
 
