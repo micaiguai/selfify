@@ -1,4 +1,11 @@
 # selfily
+
+<p align="center">
+  <a href="./assets/icon.png">
+    <img style="width: 240px;" src="./assets/icon.png">
+  </a>
+</p>
+
 Make your frontend project as your own.
 
 ## How to use
