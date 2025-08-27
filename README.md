@@ -1,4 +1,4 @@
-# selfily
+# selfify
 
 <p align="center">
   <a href="https://raw.githubusercontent.com/micaiguai/selfify/refs/heads/main/assets/icon.png">
@@ -10,7 +10,10 @@ Make your project as your own.
 
 ## How to use
 ```bash
-npx selfily
+npx selfify
+
+# pnpm
+pnpx selfify
 ```
 
 ## Modifies
