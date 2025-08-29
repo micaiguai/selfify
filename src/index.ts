@@ -1,42 +1,45 @@
 #!/usr/bin/env node
 import { capitalCase } from 'change-case'
-import { $ } from 'zx'
-import { fileExists } from './utils/index'
+import { execAsync, isFileExists, resolveDir } from './utils/index'
+import { readFile, writeFile } from 'node:fs/promises'
+import { basename } from 'node:path'
 
-const packageJsonRaw = await $`cat package.json`
-const json: Record<string, any> = JSON.parse(packageJsonRaw.stdout)
-const foldername = await $`basename $(pwd)`
-const gitUsername = await $`git config --get user.name`
-const isFundingExist = await fileExists('.github/FUNDING.yml')
+const meta = {
+  name: '',
+  author: '',
+}
 
-const basename = foldername.stdout.replace('\n', '')
-const author = gitUsername.stdout.replace('\n', '')
-const description = `${basename} description`
-const repository = `https://github.com/${author}/${basename}`
-const sponsor = `https://github.com/sponsors/${author}`
+const packageJsonRaw = await readFile(resolveDir('package.json'), 'utf-8')
+const json: Record<string, any> = JSON.parse(packageJsonRaw)
+meta.name = basename(__dirname)
+meta.author = (await execAsync('git config --get user.name')).stdout
+const isFundingExist = await isFileExists('.github/FUNDING.yml')
+const repository = `https://github.com/${meta.author}/${meta.name}`
+const sponsor = `https://github.com/sponsors/${meta.author}`
+const description = `The project of ${meta.name}`
 
-json.name = basename
-json.description = description
-json.author = author
-json.homepage = `${repository}#readme`
+json.name = meta.name
+json.description = `The project of ${meta.name}`
+json.author = meta.author
+json.homepage = `${repository}/#README.md`
 if (json.displayName) {
-  json.displayName = capitalCase(basename)
+  json.displayName = capitalCase(meta.name)
 }
 if (json.funding) {
   json.funding = sponsor
 }
 if (json.publisher) {
-  json.publisher = author
+  json.publisher = meta.author
 }
 if (json.exports) {
   json.exports = {
     '.': './dist/index.js',
-    [basename]: `./dist/index.js`,
+    [meta.name]: `./dist/index.js`,
   }
 }
 if (json.bin) {
   json.bin = {
-    [basename]: `./dist/index.js`,
+    [meta.name]: `./dist/index.js`,
   }
 }
 if (json.repository) {
@@ -56,16 +59,23 @@ if (json.sponsor) {
   }
 }
 if (json.contributes?.configuration) {
-  json.contributes.configuration.title = basename
+  json.contributes.configuration.title = meta.name
 }
-const readme = `# ${basename}
+const readme = `# ${meta.name}
 ${description}
 `
 
-await $`echo ${JSON.stringify(json, null, 2)} > package.json`
-await $`echo ${readme} > README.md`
-if (isFundingExist) {
-  await $`echo 'github: [${author}]' > .github/FUNDING.yml`
-}
+await writeFile(
+  resolveDir('package.json'), 
+  JSON.stringify(json, null, 2)
+)
+await writeFile(
+  resolveDir('README.md'), 
+  readme
+)
+isFundingExist && await writeFile(
+  resolveDir('.github/FUNDING.yml'),
+  `github: [${meta.author}]`
+)
 
 export {}

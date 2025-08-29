@@ -27,8 +27,7 @@
     "vitest": "^3.2.4"
   },
   "dependencies": {
-    "change-case": "^5.4.4",
-    "zx": "^8.8.0"
+    "change-case": "^5.4.4"
   },
   "module": "./dist/index.js",
   "exports": {
