@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { capitalCase } from 'change-case'
-import { execAsync, isFileExists, resolve } from './utils/index'
+import { __workspace, execAsync, isFileExists, resolve } from './utils/index'
 import { readFile, writeFile } from 'node:fs/promises'
 import { basename } from 'node:path'
 
@@ -11,8 +11,8 @@ const meta = {
 
 const packageJsonRaw = await readFile(resolve('package.json'), 'utf-8')
 const json: Record<string, any> = JSON.parse(packageJsonRaw)
-meta.name = basename(__dirname)
-meta.author = (await execAsync('git config --get user.name')).stdout
+meta.name = basename(__workspace)
+meta.author = (await execAsync('git config --get user.name')).stdout.trim()
 const isFundingExist = await isFileExists('.github/FUNDING.yml')
 const repository = `https://github.com/${meta.author}/${meta.name}`
 const sponsor = `https://github.com/sponsors/${meta.author}`
@@ -21,7 +21,7 @@ const description = `The project of ${meta.name}`
 json.name = meta.name
 json.description = `The project of ${meta.name}`
 json.author = meta.author
-json.homepage = `${repository}/#README.md`
+json.homepage = repository
 if (json.displayName) {
   json.displayName = capitalCase(meta.name)
 }
