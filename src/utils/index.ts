@@ -7,6 +7,8 @@ import { fileURLToPath } from "node:url"
 import { resolve as originResolve } from "path"
 import { promisify } from "util"
 
+import { Meta } from "../types"
+
 export const __filename = fileURLToPath(import.meta.url)
 export const __dirname = basename(__filename)
 export const __workspace = cwd()
@@ -26,3 +28,6 @@ export function resolve(...paths: string[]) {
 
 export const execAsync = promisify(exec)
 
+export function getDescription(meta: Meta) {
+  return `The project of ${meta.name}`;
+}
