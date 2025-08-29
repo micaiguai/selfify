@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { capitalCase } from 'change-case'
-import { execAsync, isFileExists, resolveDir } from './utils/index'
+import { execAsync, isFileExists, resolve } from './utils/index'
 import { readFile, writeFile } from 'node:fs/promises'
 import { basename } from 'node:path'
 
@@ -9,7 +9,7 @@ const meta = {
   author: '',
 }
 
-const packageJsonRaw = await readFile(resolveDir('package.json'), 'utf-8')
+const packageJsonRaw = await readFile(resolve('package.json'), 'utf-8')
 const json: Record<string, any> = JSON.parse(packageJsonRaw)
 meta.name = basename(__dirname)
 meta.author = (await execAsync('git config --get user.name')).stdout
@@ -66,15 +66,15 @@ ${description}
 `
 
 await writeFile(
-  resolveDir('package.json'), 
+  resolve('package.json'), 
   JSON.stringify(json, null, 2)
 )
 await writeFile(
-  resolveDir('README.md'), 
+  resolve('README.md'), 
   readme
 )
 isFundingExist && await writeFile(
-  resolveDir('.github/FUNDING.yml'),
+  resolve('.github/FUNDING.yml'),
   `github: [${meta.author}]`
 )
 
