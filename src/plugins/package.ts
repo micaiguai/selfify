@@ -59,7 +59,7 @@ export const packagePlugin = await definePlugin({
       json.contributes.configuration.title = meta.name
     }
 
-    const content = JSON.stringify(json, null, 2)
+    const content = JSON.stringify(json, null, 2) + '\n'
 
     await writeFile(
       resolve('package.json'), 
