@@ -4,7 +4,7 @@ import { access } from "node:fs/promises"
 import { basename } from "node:path"
 import { cwd } from "node:process"
 import { fileURLToPath } from "node:url"
-import { resolve as originResolve } from "path/posix"
+import { resolve as originResolve } from "path"
 import { promisify } from "util"
 
 export const __filename = fileURLToPath(import.meta.url)
@@ -21,7 +21,7 @@ export async function isFileExists(filePath: PathLike) {
 }
 
 export function resolve(...paths: string[]) {
-  return resolve(__workspace, ...paths)
+  return originResolve(__workspace, ...paths)
 }
 
 export const execAsync = promisify(exec)
