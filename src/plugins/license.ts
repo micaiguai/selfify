@@ -10,7 +10,7 @@ const file = resolve('LICENSE')
 function getLicense(meta: Meta) {
   return `The MIT License (MIT)
 
-Copyright (c) ${dayjs().year} ${meta.author}
+Copyright (c) ${dayjs().year()} ${meta.author}
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

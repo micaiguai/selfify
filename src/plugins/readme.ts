@@ -10,8 +10,8 @@ export const readmePlugin = definePlugin({
   when: async() => await isFileExists(file),
   async exec(meta) {
     const content = `# ${meta.name}
-      ${getDescription(meta)}
-    `
+${getDescription(meta)}
+`
     await writeFile(
       file, 
       content
