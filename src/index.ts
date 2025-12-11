@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 import { __workspace } from './utils/index'
 import { initMeta } from './utils/init'
 import { packagePlugin } from './plugins/package'
